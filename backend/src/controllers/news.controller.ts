@@ -7,7 +7,7 @@ const router = Router();
 const newsService = new NewsService();
 
 // get query
-router.get("/", authMiddleware, async (req: Request, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
 	try {
 		const news = await newsService.getNewsService();
 		res.status(202).json(news);

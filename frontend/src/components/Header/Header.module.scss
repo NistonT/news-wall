@@ -1,0 +1,26 @@
+header {
+	.wrapper {
+		@apply max-w-7xl mx-auto;
+		.header {
+			@apply flex justify-between;
+			.logo {
+				span {
+					@apply text-7xl;
+				}
+			}
+			section {
+				@apply flex;
+				nav {
+					@apply flex gap-12;
+					a {
+					}
+				}
+				.button {
+					@apply ml-12;
+					button {
+					}
+				}
+			}
+		}
+	}
+}

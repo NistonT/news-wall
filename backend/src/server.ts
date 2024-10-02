@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import { newsRouter } from "./controllers/news.controller";
@@ -14,6 +15,7 @@ const prisma = new PrismaClient();
 // main function
 async function main() {
 	app.use(express.json());
+	app.use(cors());
 
 	app.use("/api", newsRouter);
 
