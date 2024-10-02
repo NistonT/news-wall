@@ -1,6 +1,7 @@
-import { PrismaClient } from "@prisma/client"
-import dotenv from "dotenv"
-import express, { Request, Response } from "express"
+import { PrismaClient } from "@prisma/client";
+import dotenv from "dotenv";
+import express from "express";
+import { newsRouter } from "./controllers/news.controller";
 
 // active
 dotenv.config();
@@ -14,9 +15,7 @@ const prisma = new PrismaClient();
 async function main() {
 	app.use(express.json());
 
-	app.use("/api", (req: Request, res: Response) => {
-		res.status(202).json({ message: "success" });
-	});
+	app.use("/api", newsRouter);
 
 	app.listen(PORT || 5555, () => {
 		console.log(`Server online is port - ${PORT}`);
