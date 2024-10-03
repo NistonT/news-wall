@@ -47,11 +47,17 @@ export class NewsService {
 	}
 
 	// delete news
-	async deleteNewsService(id_news: number): Promise<News> {
-		return this.prisma.news.delete({
-			where: {
-				id: id_news,
-			},
+	async deleteNewsService(id_news: number): Promise<News | null> {
+		const existingNews = await this.prisma.news.findUnique({
+			where: { id: id_news },
 		});
+
+		if (existingNews) {
+			return this.prisma.news.delete({
+				where: { id: id_news },
+			});
+		} else {
+			return null;
+		}
 	}
 }

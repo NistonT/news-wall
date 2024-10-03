@@ -35,3 +35,22 @@ section {
 		}
 	}
 }
+
+.postHidden {
+	@apply bg-white text-black w-full rounded-xl p-2;
+	.buttons {
+		@apply flex justify-between;
+		.button {
+			button {
+				@apply text-xl bg-[#242424] text-white rounded px-6 py-3 hover:bg-transparent transition-all;
+			}
+		}
+		.buttonHidden {
+			@apply transition-all hover:bg-blue-600;
+		}
+
+		.buttonDelete {
+			@apply transition-all hover:bg-red-600;
+		}
+	}
+}

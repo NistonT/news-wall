@@ -1,17 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useMainGetQuery } from "../../hooks/hooks";
 import style from "./Main.module.scss";
+import { Post } from "./Post/Post";
+import { PostHidden } from "./PostHidden/PostHidden";
 
 export const Main = () => {
-	const getDataNews = async () => {
-		return axios.get("http://localhost:5555/api");
-	};
-
-	const { data, isLoading } = useQuery({
-		queryKey: ["news"],
-		queryFn: getDataNews,
-		select: data => data.data,
-	});
+	const { data, isLoading } = useMainGetQuery();
 
 	return (
 		<>
@@ -21,30 +14,21 @@ export const Main = () => {
 						<div className={style.posts}>
 							{isLoading
 								? "Loading..."
-								: undefined
-								? `Error: ${undefined}`
-								: data
+								: data && data.length > 0
 								? data.map((post: any) => (
-										<div className={style.post} key={post.id}>
-											<div className={style.title}>{post.title}</div>
-											<div className={style.description}>
-												{post.description}
-											</div>
-											<div className={style.buttons}>
-												<div
-													className={`${style.button} ${style.buttonHidden}`}
-												>
-													<button>скрыть</button>
-												</div>
-												<div
-													className={`${style.button} ${style.buttonDelete}`}
-												>
-													<button>удалить</button>
-												</div>
-											</div>
-										</div>
+										<>
+											{post.isPublished ? (
+												<Post
+													id={post.id}
+													title={post.title}
+													description={post.description}
+												/>
+											) : (
+												<PostHidden id={post.id} />
+											)}
+										</>
 								  ))
-								: "not found"}
+								: "Новостей нет!"}
 						</div>
 					</div>
 				</div>
