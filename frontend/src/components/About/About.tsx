@@ -1,17 +1,9 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import style from "./About.module.scss";
-import imgCSS from "/images/icons/css.png";
-import imgExpress from "/images/icons/express.png";
-import imgHTML from "/images/icons/html.png";
-import imgJS from "/images/icons/js.png";
-import imgNode from "/images/icons/node.png";
-import imgPrisma from "/images/icons/prisma.png";
-import imgPython from "/images/icons/python.png";
-import imgReact from "/images/icons/react.png";
-import imgSASS from "/images/icons/sass.png";
-import imgTailwind from "/images/icons/tailwind.png";
-import imgTS from "/images/icons/ts.png";
+import { AboutIconsGITHUB } from "./AboutIconsGITHUB/AboutIconsGITHUB";
 
 export const About = () => {
 	const gitnubUsername = import.meta.env.VITE_GITHUB_USERNAME;
@@ -42,13 +34,14 @@ export const About = () => {
 	};
 
 	useEffect(() => {
+		AOS.init();
 		getUserInfo();
 		document.title = `${import.meta.env.VITE_NAME_WEB_APP} О разработке`;
 	}, []);
 
 	return (
 		<>
-			<div className={style.about}>
+			<div className={style.about} data-aos='fade-up'>
 				<div className={style.wrapper}>
 					<div className={style.personal}>
 						<div className={style.img}>
@@ -69,41 +62,7 @@ export const About = () => {
 								Python, Prisma, Node.js.
 							</p>
 						</div>
-						<div className={style.icons_GITHUB}>
-							<div className={style.icon}>
-								<img src={imgHTML} alt='html' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgCSS} alt='css' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgJS} alt='js' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgTS} alt='ts' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgReact} alt='react' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgExpress} alt='express' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgSASS} alt='sass' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgTailwind} alt='tailwind' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgPython} alt='python' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgPrisma} alt='prisma' />
-							</div>
-							<div className={style.icon}>
-								<img src={imgNode} alt='node' />
-							</div>
-						</div>
+						<AboutIconsGITHUB />
 					</div>
 				</div>
 			</div>
