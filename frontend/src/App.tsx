@@ -6,20 +6,19 @@ import { Main } from "./components/Main/Main";
 
 export default function App() {
 	const routes = [
-		{ path: "/", element: <Main /> },
-		{ path: "/addNews", element: <AddNews /> },
-		{ path: "/about", element: <About /> },
+		{ id: 0, path: "/", element: <Main /> },
+		{ id: 1, path: "/addNews", element: <AddNews /> },
+		{ id: 2, path: "/about", element: <About /> },
 	];
 
 	return (
-		<div>
+		<div className='box-border min-h-screen pb-24'>
 			<Header />
 			<Routes>
 				{routes.map(route => (
-					<Route path={route.path} element={route.element} />
+					<Route key={route.id} path={route.path} element={route.element} />
 				))}
 			</Routes>
-			<footer>footer</footer>
 		</div>
 	);
 }

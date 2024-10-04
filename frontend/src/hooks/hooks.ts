@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useState } from "react";
 import { render } from "../render";
 
 export const useMainGetQuery = () => {
@@ -62,4 +63,36 @@ export const usePostQuery = (id: number) => {
 		postQueryIsPublishedTrue,
 		postQueryDelete,
 	};
+};
+
+export const useAddPost = () => {
+	const [title, setTitle] = useState<string>("");
+	const [description, setDescription] = useState<string>("");
+
+	const postQueryAddNews = async () => {
+		return await axios
+			.post(`http://localhost:5555/api`, {
+				title: title,
+				description: description,
+				isPublished: true,
+			})
+			.then(res => {
+				console.log(res);
+				render();
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
+
+	const handlerTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTitle(event.target.value);
+	};
+	const handlerDescription = (
+		event: React.ChangeEvent<HTMLTextAreaElement>
+	) => {
+		setDescription(event.target.value);
+	};
+
+	return { postQueryAddNews, handlerTitle, handlerDescription };
 };

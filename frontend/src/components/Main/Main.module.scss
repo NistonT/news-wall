@@ -4,7 +4,7 @@ section {
 		.main {
 			@apply flex justify-center;
 			.posts {
-				@apply w-3/4 flex flex-col gap-10;
+				@apply w-3/4;
 				.post {
 					@apply bg-white text-black w-full rounded-xl p-2;
 					.title {
@@ -37,7 +37,7 @@ section {
 }
 
 .postHidden {
-	@apply bg-white text-black w-full rounded-xl p-2;
+	@apply bg-white text-black w-full h-20 rounded-xl p-2 self-center;
 	.buttons {
 		@apply flex justify-between;
 		.button {
@@ -51,6 +51,20 @@ section {
 
 		.buttonDelete {
 			@apply transition-all hover:bg-red-600;
+		}
+	}
+}
+
+.notNews {
+	@apply bg-white text-black w-full rounded-xl p-8;
+	.text {
+		@apply text-3xl text-center;
+	}
+
+	.linkRedirect {
+		@apply text-2xl text-center;
+		a {
+			@apply pl-2 text-blue-600 font-medium underline;
 		}
 	}
 }

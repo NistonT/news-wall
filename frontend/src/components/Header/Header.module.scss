@@ -2,22 +2,59 @@ header {
 	.wrapper {
 		@apply max-w-7xl mx-auto;
 		.header {
-			@apply flex justify-between;
+			@apply flex justify-between self-center;
 			.logo {
+				@apply transition-all;
 				span {
-					@apply text-7xl;
+					@apply text-7xl rounded px-4 shadow-sm transition-all;
+				}
+				div {
+					@apply text-7xl rounded px-4 shadow-sm transition-all;
+					background: linear-gradient(
+						90deg,
+						#ee7752,
+						#e73c7e,
+						#23a6d5,
+						#23d5ab
+					);
+					background-size: 400% 400%;
+					animation: gradient 10s ease infinite;
+					transform: translate3d(0, 0, 0);
+				}
+				@keyframes gradient {
+					0% {
+						background-position: 0% 50%;
+					}
+					50% {
+						background-position: 100% 50%;
+					}
+					100% {
+						background-position: 0% 50%;
+					}
 				}
 			}
 			section {
-				@apply flex;
+				@apply flex mt-5 self-center;
 				nav {
-					@apply flex gap-12;
+					@apply flex gap-12 self-center;
 					a {
+						@apply text-xl hover:animate-pulse;
 					}
 				}
 				.button {
 					@apply ml-12;
 					button {
+						@apply px-5 py-2 rounded;
+						background: linear-gradient(
+							90deg,
+							#ee7752,
+							#e73c7e,
+							#23a6d5,
+							#23d5ab
+						);
+						background-size: 400% 400%;
+						animation: gradient 10s ease infinite;
+						transform: translate3d(0, 0, 0);
 					}
 				}
 			}

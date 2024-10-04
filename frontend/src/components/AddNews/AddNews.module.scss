@@ -1,0 +1,59 @@
+.panel {
+	.wrapper {
+		@apply max-w-7xl mx-auto flex justify-center;
+		.form {
+			@apply flex flex-col gap-5;
+			h1 {
+				@apply text-5xl mt-10 mb-10;
+			}
+			.titleDevInput {
+				@apply max-w-80;
+				.titleInput {
+					@apply rounded-md 
+					border border-gray-300 
+					px-3 py-2 
+					focus:outline-none 
+					focus:ring-white focus:border-white
+					w-full
+					transition-all 
+					duration-200 
+					ease-in-out;
+				}
+			}
+			.descriptionDevTextarea {
+				.descriptionTextarea {
+					@apply rounded-md 
+					border border-gray-300 
+					px-3 py-2 
+					focus:outline-none 
+					focus:ring-white focus:border-white
+					w-full
+					resize-none
+					transition-all 
+					duration-200 
+					ease-in-out;
+				}
+			}
+			.clickDevButton {
+				@apply flex justify-center;
+				.clickButton {
+					@apply hover:bg-white 
+					bg-[#242424] 
+					hover:text-[#242424]
+					text-white 
+					font-bold 
+					py-2 px-4 
+					rounded-md 
+					focus:outline-none 
+					focus:ring-2 focus:ring-blue-300
+					border-white
+					border-solid
+					border-2
+					transition-all 
+					duration-200 
+					ease-in-out;
+				}
+			}
+		}
+	}
+}
