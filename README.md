@@ -3,7 +3,7 @@ Welcome to our project! On the main page you can read the latest news and posts.
 ## Contents
 - [Technologies](#Technologies)
 - [Development](#Development)
-- [Project Team](#команда-проекта)
+- [Developer](#Developer)
 
 ## Technologies
 ### Backend
@@ -27,7 +27,6 @@ Welcome to our project! On the main page you can read the latest news and posts.
 
 ## Development
 
-### Требования
 Для установки и запуска проекта, необходим [NodeJS](https://nodejs.org/) v8+.
 
 To run the project, use the command in the root folder:
