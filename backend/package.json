@@ -22,6 +22,7 @@
 	},
 	"dependencies": {
 		"@prisma/client": "^5.20.0",
+		"news-wall": "file:..",
 		"ts-node-dev": "^2.0.0",
 		"zod": "^3.23.8"
 	}

@@ -1,0 +1,16 @@
+{
+	"name": "news-wall",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"auto": "concurrently \" npm i --prefix backend \" \" npm i --prefix frontend\" ",
+		"start": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
+	},
+	"author": "niston",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"concurrently": "^9.0.1"
+	}
+}
