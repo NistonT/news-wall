@@ -1,3 +1,4 @@
+// server
 import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import dotenv from "dotenv";
