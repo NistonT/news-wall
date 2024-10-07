@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
-import { render } from "../render";
+
+let renderApp = () => {};
 
 export const useMainGetQuery = () => {
 	const getDataNews = async () => {
@@ -24,7 +25,7 @@ export const usePostQuery = (id: number) => {
 				isPublished: false,
 			})
 			.then(res => {
-				render();
+				renderApp();
 				console.log(res);
 			})
 			.catch(error => {
@@ -38,7 +39,7 @@ export const usePostQuery = (id: number) => {
 				isPublished: true,
 			})
 			.then(res => {
-				render();
+				renderApp();
 				console.log(res);
 			})
 			.catch(error => {
@@ -50,7 +51,7 @@ export const usePostQuery = (id: number) => {
 		axios
 			.post(`http://localhost:5555/api/delete/${id}`, {})
 			.then(res => {
-				render();
+				renderApp();
 				console.log(res);
 			})
 			.catch(error => {
@@ -78,7 +79,7 @@ export const useAddPost = () => {
 			})
 			.then(res => {
 				console.log(res);
-				render();
+				renderApp();
 			})
 			.catch(error => {
 				console.log(error);
@@ -95,4 +96,8 @@ export const useAddPost = () => {
 	};
 
 	return { postQueryAddNews, handlerTitle, handlerDescription };
+};
+
+export let renderServer = (observer: any) => {
+	renderApp = observer;
 };
